@@ -6,8 +6,11 @@ Gherkin grammar is very popular among many BDD frameworks. CodeSpecJS is targeti
 ## Key Feature
 * Zero code UI Test Automation. I.e. You will not write a single line of code to define your tests. you will be using a set of well defined Gherkin grammar to define your tests. Having no code to write provide some unique advantages
     * Learning curve to implement UI Automation tests is minimized.
+    * Not depended on any specific programing language. CodeSpecJS grammar is written in pure english. Any one can understand it. 
     * No need to maintain test code bases, because with CodeSpecJS, there's none. 
-    * Time taken to write tests are reduced drastically. No need to worry about inner workings of underline frameworks, As users, we just need to concentrate about test logic.
+    * Time taken to write tests are reduced drastically. 
+    * No need to worry about inner workings of underline frameworks, As developers/testers, we just need to concentrate about test logic.
+    * Real quick startup time. You can write your first UI Automation test within minutes
     
 * Since all test are using Gherkin to define them, they are easy to write and well understood by all parties (i.e. stake holders, developers, testers etc.)
 * You will be able to map real agile story definitions directly to CodeSpecJS tests since both use almost the same specification structure
