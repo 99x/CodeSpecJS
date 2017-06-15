@@ -68,7 +68,7 @@ exports.config = {
       console.log('Now reading repository file "'+file+'"');
       let tempPromise = new Promise((resolve, reject) => {
         try {
-          csv.fromPath('./repository/' + file, { headers: true })
+          csv.fromPath('./repository/' + file, { headers: true, ignoreEmpty: true, trim: true })
             .on("data", function (data) {
               if (!_.find(repoElementsArray, (object) => { return data.elementKey === object.elementKey })) {
                 repoElementsArray.push(data);
