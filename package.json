@@ -1,7 +1,7 @@
 {
   "name": "CodeSpecJS",
   "version": "0.0.1",
-  "description": "sample project with cucumber ts-flow",
+  "description": "UI Automation testing without writing code",
   "main": "index.js",
   "scripts": {
     "pretest": "webdriver-manager update",
@@ -9,19 +9,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/orieken/cucumber-tsflow-example.git"
+    "url": "git+https://github.com/99xt/CodeSpecJS.git"
   },
   "keywords": [
-    "cucumber",
-    "typescript",
-    "cucumber-tsflow"
+    "Zero Code UI Automation",
+    "UI Automation",
+    "Cucumber",
+    "Protractor",
+    "Selenium"
   ],
-  "author": "Oscar Rieken",
+  "author": "Suren Rodrigo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/orieken/cucumber-tsflow-example/issues"
+    "url": "https://github.com/99xt/CodeSpecJS/issues"
   },
-  "homepage": "https://github.com/orieken/cucumber-tsflow-example#readme",
+  "homepage": "https://github.com/99xt/CodeSpecJS#readme",
   "devDependencies": {
     "@types/chai": "^4.0.0",
     "@types/chai-as-promised": "0.0.31",
