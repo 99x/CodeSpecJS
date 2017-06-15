@@ -38,9 +38,9 @@ Feature: As a user I want to test google search so that I can search for cats an
         And Wait for "Second Result Element" to contain text "Complete Guide to Caring for Dogs | Dog Breed Information, Dog ..."
 ```
 * This is a standard [Cucumber](https://cucumber.io/) feature specification file.
-* We are using CodeSpecJS pre-defined grammar to write the test above. A full set of Supported grammar with detail description can be found [here](#Supported-Grammar)
+* We are using CodeSpecJS pre-defined grammar to write the test above. A full set of Supported grammar with detail description can be found [here](#supported-grammar)
 
-Thats it, you are now ready to run the test
+Thats it, you are now ready to run the test. **Note that we haven't written any code** We just used a set of well defined Gherkin grammar to specify what we want to do. Please refer to [Supported Grammar](#supported-grammar) to a full set of grammar you can use in your tests. 
 
 ### Step 5: Running the test
 Inside the project root folder, issue the following command
