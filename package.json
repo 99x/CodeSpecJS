@@ -1,0 +1,46 @@
+{
+  "name": "CodeSpecJS",
+  "version": "0.0.1",
+  "description": "sample project with cucumber ts-flow",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "webdriver-manager update",
+    "test": "protractor protractor.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orieken/cucumber-tsflow-example.git"
+  },
+  "keywords": [
+    "cucumber",
+    "typescript",
+    "cucumber-tsflow"
+  ],
+  "author": "Oscar Rieken",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/orieken/cucumber-tsflow-example/issues"
+  },
+  "homepage": "https://github.com/orieken/cucumber-tsflow-example#readme",
+  "devDependencies": {
+    "@types/chai": "^4.0.0",
+    "@types/chai-as-promised": "0.0.31",
+    "@types/lodash-es": "^4.14.5",
+    "chai": "^4.0.2",
+    "chai-as-promised": "^7.0.0",
+    "cucumber": "^2.3.1",
+    "cucumber-tsflow": "^2.2.0",
+    "protractor": "^5.1.2",
+    "protractor-cucumber-framework": "^3.1.2",
+    "ts-node": "^3.0.6",
+    "tslint": "^5.4.3",
+    "typescript": "^2.3.4"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.66",
+    "csv-parser": "^1.11.0",
+    "cucumber-html-reporter": "^2.0.0",
+    "fast-csv": "^2.4.0",
+    "lodash": "^4.17.4"
+  }
+}
