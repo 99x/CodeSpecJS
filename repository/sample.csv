@@ -1,0 +1,4 @@
+elementKey,selectionMethod,value
+"Google Main Search Text Box","id","lst-ib"
+"Search Button","id","_fZl"
+"Second Result Element","xpath","//*[@id='rso']/div[1]/div/div[2]/div/div/h3/a"

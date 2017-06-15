@@ -1,6 +1,0 @@
-elementKey,selectionMethod,value
-"Main Search Text Box","xpath","//html/body/my-app/ng-component/ng-component/div[1]/div/searchbar/div/div/div[1]/input"
-"Search Drop Down","xpath","//div[contains(@class,'search-dropdown')]"
-"search Result First Item","xpath","//div[contains(@class,'search-dropdown')]/div[2]/ul/li[1]"
-"search Result Listing First Item","xpath","//div[contains(@class,'eventBox h')][1]"
-"checkout Page Listing Owner Name","xpath","//h2[contains(@class,'profile-area-uname')]"
