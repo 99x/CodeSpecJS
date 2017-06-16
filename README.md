@@ -67,9 +67,9 @@ Feature: As a user I want to test google search so that I can search for cats an
 * Once we specify a page object using the detailed grammar, we can refer to it directly using the element key (or the unique identifier) for all the future tests. 
 * Note that detailed grammar is only necessary if you don't specify the page objects using an object repository. [Click here](https://github.com/99xt/CodeSpecJS/wiki/Creating-an-Object-Repository) to know more about how to create object repositories. 
 * This is a standard [Cucumber](https://cucumber.io/) feature specification file.
-* We are using CodeSpecJS pre-defined grammar to write the test above. A full set of Supported grammar with detail description can be found [here](#supported-grammar)
+* We are using CodeSpecJS pre-defined grammar to write the test above. A full set of Supported grammar with detail description can be found [here](https://github.com/99xt/CodeSpecJS/wiki/CodeSpecJS-Supported-Grammar)
 
-Thats it, you are now ready to run the test. **Note that we haven't written any code** We just used a set of well defined Gherkin grammar to specify what we want to do. Please refer to [Supported Grammar](#supported-grammar) to a full set of grammar you can use in your tests. 
+Thats it, you are now ready to run the test. **Note that we haven't written any code** We just used a set of well defined Gherkin grammar to specify what we want to do. Please refer to [Supported Grammar](https://github.com/99xt/CodeSpecJS/wiki/CodeSpecJS-Supported-Grammar) to a full set of grammar you can use in your tests. 
 
 ### Step 5: Running the test
 Inside the project root folder, issue the following command
