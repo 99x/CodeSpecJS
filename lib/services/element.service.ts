@@ -1,7 +1,7 @@
 import { browser, ElementHelper, element, by, ElementFinder } from 'protractor';
 import { ElementObject } from "../domain/elementObject";
 import { ProtractorLocator } from "protractor/built/locators";
-import { By } from "@types/selenium-webdriver";
+import { promise as wdpromise } from 'selenium-webdriver'
 import * as _ from "lodash";
 import { RepoElement } from "../domain/repoElement";
 
