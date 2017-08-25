@@ -48,20 +48,20 @@ npm install
 ### Step 4: Let's start writing our first UI Automation test 
 Under the "features" folder create a new file called "sample.feature". copy and paste the specification given below
 ```
-Feature: As a user I want to test google search so that I can search for cats and dogs
-    Scenario: Search google for cats
-        Given Navigate to "http://www.google.com"
-        And Wait for "Google Main Search Text Box" with the "id" of "lst-ib" to appear
-        Then I enter "Cats" to the "Google Main Search Text Box"
-        And Click on "Search Button" with the "id" of "_fZl"
-        And Wait for "Second Result Element" with the "xpath" of "//*[@id='rso']/div[1]/div/div[2]/div/div/h3/a" to contain text "Cats Protection"
+Feature: As a user I want to test http://automationpractice.com so that I can search for t-shirts and blouses
+    Scenario: Search for t-shirt
+        Given Navigate to "http://automationpractice.com"
+        And Wait for "Main search bar" with the "id" of "search_query_top" to appear
+        Then I enter "t-shirt" to the "Main search bar"
+        And Click on "Search Button" with the "xpath" of "id('searchbox')/button"
+        And Wait for "First Result Element" with the "xpath" of "id('center_column')/ul/li/div/div[2]/h5/a" to contain text "Faded Short Sleeve T-shirts"
          
-    Scenario: Search google for Dogs
-        Given Navigate to "http://www.google.com"
-        And Wait for "Google Main Search Text Box" to appear
-        Then I enter "Dogs" to the "Google Main Search Text Box"
+    Scenario: Search for blouse
+        Given Navigate to "http://automationpractice.com"
+        And Wait for "Main search bar" to appear
+        Then I enter "Blouse" to the "Main search bar"
         And Click on "Search Button"
-        And Wait for "Second Result Element" to contain text "Complete Guide to Caring for Dogs | Dog Breed Information, Dog ..."
+        And Wait for "First Result Element" to contain text "Blouse"
 ```
 * The first scenario "Search google for cats" is using what we call the CodeSpecJS Detailed Grammar (Ex: And Wait for "Google Main Search Text Box" with the "id" of "lst-ib" to appear). Here, we are instructing CodeSpecJS to look for an UI element in the DOM model with an "id" value of "lst-ib" and to add it to the system object repository with a unique identifier "Google Main Search Text Box". 
 * Once we specify a page object using the detailed grammar, we can refer to it directly using the element key (or the unique identifier) for all the future tests. 
