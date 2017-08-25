@@ -63,7 +63,7 @@ Feature: As a user I want to test http://automationpractice.com so that I can se
         And Click on "Search Button"
         And Wait for "First Result Element" to contain text "Blouse"
 ```
-* The first scenario "Search google for cats" is using what we call the CodeSpecJS Detailed Grammar (Ex: And Wait for "Google Main Search Text Box" with the "id" of "lst-ib" to appear). Here, we are instructing CodeSpecJS to look for an UI element in the DOM model with an "id" value of "lst-ib" and to add it to the system object repository with a unique identifier "Google Main Search Text Box". 
+* The first scenario "Search for t-shirt" is using what we call the CodeSpecJS Detailed Grammar (Ex: And Wait for "Main search bar" with the "id" of "search_query_top" to appear). Here, we are instructing CodeSpecJS to look for an UI element in the DOM model with an "id" value of "search_query_top" and to add it to the system object repository with a unique identifier "Search for t-shirt". 
 * Once we specify a page object using the detailed grammar, we can refer to it directly using the element key (or the unique identifier) for all the future tests. 
 * Note that detailed grammar is only necessary if you don't specify the page objects using an object repository. [Click here](https://github.com/99xt/CodeSpecJS/wiki/Creating-an-Object-Repository) to know more about how to create object repositories. 
 * This is a standard [Cucumber](https://cucumber.io/) feature specification file.
