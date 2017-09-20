@@ -9,6 +9,7 @@ exports.config = {
   plugins: [],
   directConnect: true,
   framework: 'custom',
+  ignoreUncaughtExceptions: true,
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   cucumberOpts: {
     compiler: "ts:ts-node/register",
