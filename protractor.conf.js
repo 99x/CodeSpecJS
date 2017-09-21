@@ -2,6 +2,7 @@
 exports.config = {
   allScriptsTimeout: 180000,
   specs: ['features/**/*.feature'],
+  exclude: ['features/no_edit.feature'],
   capabilities: {
     'browserName': 'chrome',
     'chromeOptions': {}
