@@ -1,0 +1,1 @@
+npm run test -- --specs=features/google.feature --cucumberOpts.name='Search for Cats' --cucumberOpts.name='Search for Dogs'

@@ -1,0 +1,15 @@
+Feature: As a user I want to test http://automationpractice.com so that I can search for t-shirts and blouses
+    Scenario: Search for tshirt
+        Given Navigate to "http://automationpractice.com"
+        And Wait for "Main search bar" with the "id" of "search_query_top" to appear
+        Then I enter "t-shirt" to the "Main search bar"
+        And Click on "Search Button" with the "xpath" of "id('searchbox')/button"
+        And Wait for "First Result Element" with the "xpath" of "id('center_column')/ul/li/div/div[2]/h5/a" to contain text "Faded Short Sleeve T-shirts"
+       
+         
+    Scenario: Search for blouse
+        Given Navigate to "http://automationpractice.com"
+        And Wait for "Main search bar" to appear
+        Then I enter "Blouse" to the "Main search bar"
+        And Click on "Search Button"
+        And Wait for "First Result Element" to contain text "Blouse"

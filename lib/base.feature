@@ -36,3 +36,16 @@ Feature: Base pre-build scenarios for UI Automation
 
       When I drag "<Dragable Element Key>" and drop on to "<Droppable Element Key>"
       When I drag "<Dragable Element Key>" with the "<Selection Method>" of "<Selection Value>" and drop on to "<Droppable Element Key>" with the "<Selection Method>" of "<Selection Value>"
+
+      When I read the content of element "<Element Key>" with the "<Selection Method>" of "<Selection Value>" and store in variable "<Variable Key>" as a "<Variable Type>"
+      When I read the contant of element "<Element Key>" and store in variable "<Variable Key>" as a "<Variable Type>"
+      When I store the value "<Value>" in variable "<Variable Key>" as a "<Variable Type>"
+      When The value in variable "<Variable key>" of type "<Variable Type>" equals to "<Value>"
+      When The value in variable "<Variable1 key>" of type "<Variable1 Type>" equals to variable "<Variable2 key>"
+      #When I Add variable "<Variable1 key>" of type "<Variable1 Type>" to variable "<Variable2 key>" of type "<Variable2 type>" and store in "<Variable2 key>" of type "<Variable3 type>"
+      When I Add variable "<Variable1 key>" to "<Variable2 key>" and store in "<Variable3 key>"
+      When I Subtract variable "<Variable1 key>" from "<Variable2 key>" and store in "<Variable3 key>"
+      When I Multiply variable "<Variable1 key>" from "<Variable2 key>" and store in "<Variable3 key>"
+      When I Divide variable "<Variable1 key>" from "<Variable2 key>" and store in "<Variable3 key>"
+      # When I populate "<Element Key>" with the "<Selection Method>" of "<Selection Value>" with the value of variable "<Variable Key>" of type "<Variable Type>"
+      # When I Populate "<Element Key>" with the value of variable "<Variable Key>" of type "<Variable Type>"
