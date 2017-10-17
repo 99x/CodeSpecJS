@@ -405,11 +405,7 @@ class BaseSteps {
     );
   }
 
-  @given(
-    /^I read the content of element "([^"]*)" and store in variable "([^"]*)" as a "([^"]*)"$/,
-    null,
-    60 * 1000
-  )
+  @given(/^I read the content of element "([^"]*)" and store in variable "([^"]*)" as a "([^"]*)"$/, null, 60 * 1000)
   public readContentAndStoreInVariable(
     elementKey: string,
     variableKey: string,
@@ -424,11 +420,7 @@ class BaseSteps {
     );
   }
 
-  @given(
-    /^I read the content of element "([^"]*)" with the "([^"]*)" of "([^"]*)" and store in variable "([^"]*)" as a "([^"]*)"$/,
-    null,
-    60 * 1000
-  )
+  @given(/^I read the content of element "([^"]*)" with the "([^"]*)" of "([^"]*)" and store in variable "([^"]*)" as a "([^"]*)"$/, null, 60 * 1000)
   public readContentWithSelectionAndStoreInVariable(
     elementKey: string,
     selectionMethod: string,
