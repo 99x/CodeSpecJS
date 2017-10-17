@@ -4,8 +4,9 @@
   "description": "UI Automation testing without writing code",
   "main": "index.js",
   "scripts": {
-    "pretest": "webdriver-manager update",
-    "test": "protractor protractor.conf.js"
+    "pretest": "webdriver-manager update --versions.chrome 2.25",
+    "test": "protractor protractor.conf.js --disableChecks",
+    "ci": "protractor protractor.ci.conf.js"
   },
   "repository": {
     "type": "git",
