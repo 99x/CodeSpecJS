@@ -30,8 +30,8 @@ Feature: Base pre-build scenarios for UI Automation
 
       When Accept the confirmation alert
       When The alert message says "<Expected Text>"
-      When I Dismiss the prompt dialog
-      When I Accept the prompt dialog
+      When I Dismiss the confirm dialog
+      When I Accept the confirm dialog
       When I type "<Input Text>" into prompt
 
       When I drag "<Dragable Element Key>" and drop on to "<Droppable Element Key>"

@@ -490,6 +490,27 @@ class BaseSteps {
     );
   }
 
+  @given(/^I drag "([^"]*)" and drop on to "([^"]*)"$/,null, 60 * 1000)
+  public dragAndDropElement(dragElementKey: string, dropElementKey: string) {
+    return this.dragAndDropElementsWithSelection(dragElementKey, null, null, dropElementKey, null, null);
+  }
+
+  @given(/^I drag "([^"]*)" with the "([^"]*)" of "([^"]*)" and drop on to "([^"]*)" with the "([^"]*)" of "([^"]*)"$/, null, 60 * 1000)
+  public dragAndDropElementsWithSelection(dragElementKey: string, dragElementSelectionMethod: string, dragElementSelectionValue: string,
+    dropElementKey: string, dropElementSelectionMethod: string, dropElementSelectionValue: string) {
+
+    let dragElement = this.getWebElement(dragElementKey, dragElementSelectionMethod, dragElementSelectionValue);
+    let dropElement = this.getWebElement(dropElementKey, dropElementSelectionMethod, dropElementSelectionValue);
+
+    return assert.eventually.equal(
+      browser.driver.actions().dragAndDrop(dragElement, dropElement).perform().then(() => { return true; }, (error: any) => {
+        throw new Error(error.message);
+      }
+      ), true, 'Operation failed');
+
+
+  }
+
   @given(/^The value in variable "([^"]*)" of type "([^"]*)" equals to variable "([^"]*)"$/, null, 60 * 1000)
   public compareVariableWithVariable(variableOne: string, variableType: string, variableTwo: string) {
     let comparison = null;
