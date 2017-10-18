@@ -490,7 +490,7 @@ class BaseSteps {
     );
   }
 
-  @given(/^I drag "([^"]*)" and drop on to "([^"]*)"$/,null, 60 * 1000)
+  @given(/^I drag "([^"]*)" and drop on to "([^"]*)"$/, null, 60 * 1000)
   public dragAndDropElement(dragElementKey: string, dropElementKey: string) {
     return this.dragAndDropElementsWithSelection(dragElementKey, null, null, dropElementKey, null, null);
   }
@@ -509,6 +509,62 @@ class BaseSteps {
       ), true, 'Operation failed');
 
 
+  }
+
+  @given(/^Accept the confirmation alert$/, null, 60 * 1000)
+  @given(/^I Accept the confirm dialog$/, null, 60 * 1000)
+  public AcceptBrowserAlert() {
+    return assert.eventually.equal(
+      browser.driver.switchTo().alert().accept().then(() => {
+        return true;
+      }, (error: any) => {
+        throw new Error(error.message);
+      }
+      ), true, 'Operation failed');
+  }
+
+  @given(/^The alert message says "([^"]*)"$/, null, 60 * 1000)
+  public CheckAlertMessageText(textToCompare: string) {
+    return assert.eventually.equal(
+      browser.driver.switchTo().alert().getText().then((text: string) => {
+        return text.trim() === textToCompare.trim();
+      }, (error: any) => {
+        throw new Error(error.message);
+      }
+      ), true, 'Operation failed');
+  }
+
+  @given(/^I Dismiss the confirm dialog$/, null, 60 * 1000)
+  public DisMissConfirmation() {
+    return assert.eventually.equal(
+      browser.driver.switchTo().alert().dismiss().then(() => {
+        return true;
+      }, (error: any) => {
+        throw new Error(error.message);
+      }
+      ), true, 'Operation failed');
+  }
+
+  @given(/^I Accept the confirm dialog$/, null, 60 * 1000)
+  public AcceptConfirmation() {
+    return assert.eventually.equal(
+      browser.driver.switchTo().alert().accept().then(() => {
+        return true;
+      }, (error: any) => {
+        throw new Error(error.message);
+      }
+      ), true, 'Operation failed');
+  }
+
+  @given(/^I enter "([^"]*)" into prompt$/, null, 60 * 1000)
+  public typeInPrompt(textToCompare: string) {
+    return assert.eventually.equal(
+      browser.driver.switchTo().alert().sendKeys(textToCompare).then(() => {
+        return true;
+      }, (error: any) => {
+        throw new Error(error.message);
+      }
+      ), true, 'Operation failed');
   }
 
   @given(/^The value in variable "([^"]*)" of type "([^"]*)" equals to variable "([^"]*)"$/, null, 60 * 1000)
