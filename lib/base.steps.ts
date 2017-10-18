@@ -465,6 +465,36 @@ class BaseSteps {
     );
   }
 
+  @given(/^I populate "([^"]*)" with the value of variable "([^"]*)" of type "([^"]*)"$/, null, 60 * 1000)
+  public populateElementUsingVariableValue(elementKey: string, variableKey: string, variableType: string) {
+      return this.populateElementWithSelectionUsingVariableValue(elementKey, null, null, variableKey, variableType);
+    }
+
+  @given(/^I populate "([^"]*)" with the "([^"]*)" of "([^"]*)" with the value of variable "([^"]*)" of type "([^"]*)"$/, null, 60 * 1000)
+  public populateElementWithSelectionUsingVariableValue(elementKey: string, elementSelectionType: string, elementSelectionValue: string,
+    variableKey: string, variableType: string) {
+    let inputElement = this.getWebElement(elementKey, elementSelectionType, elementSelectionValue);
+    let variableValue = null;
+    switch (variableType.toLowerCase()) {
+      case VariableType.String:
+        variableValue = this.variableService.getStringVariable(variableKey).getValue();
+        break;
+      case VariableType.Number:
+        variableValue = this.variableService.getNumberVariable(variableKey).getValue();
+        break;
+      default:
+        throw new Error('Invalid variable type');
+    }
+    if (!variableValue) throw new Error('Invalid variable value');
+
+    return assert.eventually.equal(
+      inputElement.sendKeys(variableValue).then(() => { return true; }, (error: any) => {
+        throw new Error(error.message);
+      }
+      ), true, 'Operation failed');
+  }
+
+
   @given(
     /^The value in variable "([^"]*)" of type "([^"]*)" equals to "([^"]*)"$/, null, 60 * 1000
   )
@@ -508,8 +538,9 @@ class BaseSteps {
       }
       ), true, 'Operation failed');
 
-
   }
+
+
 
   @given(/^Accept the confirmation alert$/, null, 60 * 1000)
   @given(/^I Accept the confirm dialog$/, null, 60 * 1000)
