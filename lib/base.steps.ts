@@ -10,7 +10,7 @@ import { ElementService } from './services/element.service';
 import { VariableService } from './services/variable.service';
 import { VariableType } from './domain/variableType';
 import { ICommonVariable } from './domain/ICommonVariable';
-import { IHooks } from './domain/ihooks';
+import { IHooks } from './domain/Ihooks';
 import { Hooks } from '../hooks';
 let chai = require('chai').use(require('chai-as-promised'));
 let expect = chai.expect;
