@@ -26,7 +26,7 @@ class BaseSteps {
     this.elementService = ElementService.GetInstance();
     this.variableService = VariableService.GetInstance();
     this.lifeCycleHooks = new Hooks();
-    this.defaultElementTimeout = 10000;
+    this.defaultElementTimeout = 1000000;
   }
 
 
@@ -686,6 +686,32 @@ class BaseSteps {
         }
       ), true, 'Failed to upload file'
     );
+  }
+
+  @given(/^Click on "([^"]*)" when active$/, null, 60 * 1000)
+  public clickOnElementWhenActive(elementKey: string) {
+    return this.clickOnElementWhenActiveWithSelectionMethod(elementKey, null, null);
+  }
+
+  @given(/^Click on "([^"]*)" with the "([^"]*)" of "([^"]*)" when active$/, null, 60 * 1000)
+  public clickOnElementWhenActiveWithSelectionMethod(elementKey: string, selectionMethod: string, selectionValue: string) {
+    let elementToWait = this.getWebElement(elementKey, selectionMethod, selectionValue);
+    let expectedCondition = ExpectedConditions.visibilityOf(elementToWait);
+
+    browser.driver.wait(expectedCondition, this.defaultElementTimeout).then( () => {
+      return assert.eventually.equal(
+        elementToWait.click().then(() => {
+          return true;
+        }, (error: any) => {
+          throw new Error(error.message);
+        }),
+        true,
+        'Element click failed.'
+      );
+    },
+    (error: any) => {
+          throw new Error(error.message);
+    });
   }
 
   private getVariable(variableKey: string, variableType: string): ICommonVariable {

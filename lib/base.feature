@@ -50,3 +50,6 @@ Feature: Base pre-build scenarios for UI Automation
 
       When I Upload "<File Path>" to "<Element Key>" with the "<Selection Method>" of "<Selection Value>"
       When I Upload "<File Path>" to "<Element Key>"
+
+      When Click on "<Element Key>" with the "<Selection Method>" of "<Selection Value>" when active
+      When Click on "<Element Key>" when active
