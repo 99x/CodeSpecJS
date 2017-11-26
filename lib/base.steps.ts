@@ -668,6 +668,26 @@ class BaseSteps {
 
   }
 
+  @given(/^I Upload "([^"]*)" to "([^"]*)"$/, null, 60 * 1000)
+  public uploadFile(filePath: string, elementKey: string) {
+    this.uploadFileWithSelectionMethod(filePath, elementKey, null, null);
+  }
+
+
+  @given(/^I Upload "([^"]*)" to "([^"]*)" with the "([^"]*)" of "([^"]*)"$/, null, 60 * 1000)
+  public uploadFileWithSelectionMethod(filePath: string, elementKey: string, selectionMethod: string, selectionValue: string) {
+    let uploadElement = this.getWebElement(elementKey, selectionMethod, selectionValue);
+    return assert.eventually.equal(
+      uploadElement.sendKeys(filePath).then(
+        () => { 
+          return true; 
+        }, (error: any) => {
+          throw new Error(error.message);
+        }
+      ), true, 'Failed to upload file'
+    );
+  }
+
   private getVariable(variableKey: string, variableType: string): ICommonVariable {
     switch (variableType.toLocaleLowerCase()) {
       case VariableType.Number:
