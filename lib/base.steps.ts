@@ -26,7 +26,7 @@ class BaseSteps {
     this.elementService = ElementService.GetInstance();
     this.variableService = VariableService.GetInstance();
     this.lifeCycleHooks = new Hooks();
-    this.defaultElementTimeout = 1000000;
+    this.defaultElementTimeout = 10000;
   }
 
 
