@@ -164,6 +164,7 @@ class BaseSteps {
     return assert.eventually.equal(
       elementToClick.click().then(
         () => {
+          console.log("now clicked button")
           return true;
         },
         (error: any) => {
@@ -467,8 +468,8 @@ class BaseSteps {
 
   @given(/^I populate "([^"]*)" with the value of variable "([^"]*)" of type "([^"]*)"$/, null, 60 * 1000)
   public populateElementUsingVariableValue(elementKey: string, variableKey: string, variableType: string) {
-      return this.populateElementWithSelectionUsingVariableValue(elementKey, null, null, variableKey, variableType);
-    }
+    return this.populateElementWithSelectionUsingVariableValue(elementKey, null, null, variableKey, variableType);
+  }
 
   @given(/^I populate "([^"]*)" with the "([^"]*)" of "([^"]*)" with the value of variable "([^"]*)" of type "([^"]*)"$/, null, 60 * 1000)
   public populateElementWithSelectionUsingVariableValue(elementKey: string, elementSelectionType: string, elementSelectionValue: string,
@@ -679,8 +680,8 @@ class BaseSteps {
     let uploadElement = this.getWebElement(elementKey, selectionMethod, selectionValue);
     return assert.eventually.equal(
       uploadElement.sendKeys(filePath).then(
-        () => { 
-          return true; 
+        () => {
+          return true;
         }, (error: any) => {
           throw new Error(error.message);
         }
@@ -693,25 +694,30 @@ class BaseSteps {
     return this.clickOnElementWhenActiveWithSelectionMethod(elementKey, null, null);
   }
 
+
   @given(/^Click on "([^"]*)" with the "([^"]*)" of "([^"]*)" when active$/, null, 60 * 1000)
   public clickOnElementWhenActiveWithSelectionMethod(elementKey: string, selectionMethod: string, selectionValue: string) {
-    let elementToWait = this.getWebElement(elementKey, selectionMethod, selectionValue);
-    let expectedCondition = ExpectedConditions.visibilityOf(elementToWait);
 
-    browser.driver.wait(expectedCondition, this.defaultElementTimeout).then( () => {
-      return assert.eventually.equal(
-        elementToWait.click().then(() => {
-          return true;
-        }, (error: any) => {
-          throw new Error(error.message);
-        }),
-        true,
-        'Element click failed.'
-      );
-    },
-    (error: any) => {
-          throw new Error(error.message);
-    });
+    let element = this.getWebElement(elementKey, selectionMethod, selectionValue);
+    let isvisible = ExpectedConditions.visibilityOf(element);
+    let isClickable = ExpectedConditions.elementToBeClickable(element);
+
+    return assert.eventually.equal(
+      browser.driver.wait(function () {
+        return element.isDisplayed().then(function (displayed) {
+          if (!displayed) {
+            return false;
+          }
+          return element.isEnabled();
+        });
+      }, this.defaultElementTimeout).then(() => {
+        element.click();
+        return true;
+      }, (error: any) => {
+        throw new Error(error.message);
+      }), true, 'Operation click failed'
+    );
+
   }
 
   private getVariable(variableKey: string, variableType: string): ICommonVariable {
