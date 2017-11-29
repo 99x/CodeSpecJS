@@ -164,6 +164,7 @@ class BaseSteps {
     return assert.eventually.equal(
       elementToClick.click().then(
         () => {
+          console.log("now clicked button")
           return true;
         },
         (error: any) => {
@@ -467,8 +468,8 @@ class BaseSteps {
 
   @given(/^I populate "([^"]*)" with the value of variable "([^"]*)" of type "([^"]*)"$/, null, 60 * 1000)
   public populateElementUsingVariableValue(elementKey: string, variableKey: string, variableType: string) {
-      return this.populateElementWithSelectionUsingVariableValue(elementKey, null, null, variableKey, variableType);
-    }
+    return this.populateElementWithSelectionUsingVariableValue(elementKey, null, null, variableKey, variableType);
+  }
 
   @given(/^I populate "([^"]*)" with the "([^"]*)" of "([^"]*)" with the value of variable "([^"]*)" of type "([^"]*)"$/, null, 60 * 1000)
   public populateElementWithSelectionUsingVariableValue(elementKey: string, elementSelectionType: string, elementSelectionValue: string,
@@ -665,6 +666,57 @@ class BaseSteps {
       return true;
     }
     return assert.eventually.equal(Promise.resolve(divideVariables()), true, 'Operation failed');
+
+  }
+
+  @given(/^I Upload "([^"]*)" to "([^"]*)"$/, null, 60 * 1000)
+  public uploadFile(filePath: string, elementKey: string) {
+    this.uploadFileWithSelectionMethod(filePath, elementKey, null, null);
+  }
+
+
+  @given(/^I Upload "([^"]*)" to "([^"]*)" with the "([^"]*)" of "([^"]*)"$/, null, 60 * 1000)
+  public uploadFileWithSelectionMethod(filePath: string, elementKey: string, selectionMethod: string, selectionValue: string) {
+    let uploadElement = this.getWebElement(elementKey, selectionMethod, selectionValue);
+    return assert.eventually.equal(
+      uploadElement.sendKeys(filePath).then(
+        () => {
+          return true;
+        }, (error: any) => {
+          throw new Error(error.message);
+        }
+      ), true, 'Failed to upload file'
+    );
+  }
+
+  @given(/^Click on "([^"]*)" when active$/, null, 60 * 1000)
+  public clickOnElementWhenActive(elementKey: string) {
+    return this.clickOnElementWhenActiveWithSelectionMethod(elementKey, null, null);
+  }
+
+
+  @given(/^Click on "([^"]*)" with the "([^"]*)" of "([^"]*)" when active$/, null, 60 * 1000)
+  public clickOnElementWhenActiveWithSelectionMethod(elementKey: string, selectionMethod: string, selectionValue: string) {
+
+    let element = this.getWebElement(elementKey, selectionMethod, selectionValue);
+    let isvisible = ExpectedConditions.visibilityOf(element);
+    let isClickable = ExpectedConditions.elementToBeClickable(element);
+
+    return assert.eventually.equal(
+      browser.driver.wait(function () {
+        return element.isDisplayed().then(function (displayed) {
+          if (!displayed) {
+            return false;
+          }
+          return element.isEnabled();
+        });
+      }, this.defaultElementTimeout).then(() => {
+        element.click();
+        return true;
+      }, (error: any) => {
+        throw new Error(error.message);
+      }), true, 'Operation click failed'
+    );
 
   }
 
