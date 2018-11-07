@@ -18,7 +18,12 @@ let getMultipleBrowserCapability = function (params) {
 
 exports.config = {
   allScriptsTimeout: 180000,
-  specs: ['features/**/*.feature'],
+  suites: {
+    mySuite: [
+      './features/dog.feature',
+      './features/cat.feature'
+    ]
+  },
   exclude: ['features/no_edit.feature'],
   capabilities: {
     'browserName': 'chrome',
