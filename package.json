@@ -45,6 +45,6 @@
     "csv-parser": "^2.1.0",
     "cucumber-html-reporter": "^4.0.4",
     "fast-csv": "^2.4.1",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.15"
   }
 }
