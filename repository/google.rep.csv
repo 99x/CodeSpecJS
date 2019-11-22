@@ -1,6 +1,6 @@
 elementKey,selectionMethod,value
-"Google Main Search Text Box","xpath","//*[@id='lst-ib']"
-"Search Button","xpath","//*[@id='tsf']/div[2]/div[3]/center/input[1]"
-"Second Result Element Cats","xpath","//*[@id='rso']/div[4]/div/div[1]/div/div/div[1]/a/h3"
-"Second Result Element Dogs","xpath","//*[@id='rso']/div[2]/div/div[2]/div/div/div[1]/a/h3"
+"Google Main Search Text Box","xpath","//html/body/div/div[4]/form/div[2]/div[1]/div[1]/div/div[2]/input"
+"Search Button","xpath","//html/body/div/div[4]/form/div[2]/div[1]/div[3]/center/input[1]"
+"Second Result Element Cats","xpath","//html/body/div[6]/div[3]/div[10]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div/div[1]/div[2]/div[1]/div/div/div[2]/div[1]/span"
+"Second Result Element Dogs","xpath","//html/body/div[6]/div[3]/div[10]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/span"
 
