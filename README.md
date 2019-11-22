@@ -45,31 +45,26 @@ Step inside the project root folder and issue the following command to install n
 npm install
 ```
 
-### Step 4: Let's start writing our first UI Automation test 
-Under the "features" folder create a new file called "sample.feature". copy and paste the specification given below
+### Step 4: Open sample tests
+use VS Code to open the project
 ```
-Feature: As a user I want to test http://automationpractice.com so that I can search for t-shirts and blouses
-    Scenario: Search for t-shirt
-        Given Navigate to "http://automationpractice.com"
-        And Wait for "Main search bar" with the "id" of "search_query_top" to appear
-        Then I enter "t-shirt" to the "Main search bar"
-        And Click on "Search Button" with the "xpath" of "id('searchbox')/button"
-        And Wait for "First Result Element" with the "xpath" of "id('center_column')/ul/li/div/div[2]/h5/a" to contain text "Faded Short Sleeve T-shirts"
-         
-    Scenario: Search for blouse
-        Given Navigate to "http://automationpractice.com"
-        And Wait for "Main search bar" to appear
-        Then I enter "Blouse" to the "Main search bar"
+code .
+```
+now navigate to 'features' folder and open 'cat.feature' file see the readable test case
+ ```
+ Feature: As a user I want to test google search so that I can search for Cats
+    Scenario: Search google for cats
+        Given Navigate to "http://www.google.com"
+        And Wait for "Google Main Search Text Box" to appear
+        Then I enter "Cats" to the "Google Main Search Text Box"
         And Click on "Search Button"
-        And Wait for "First Result Element" to contain text "Blouse"
-```
-* The first scenario "Search for t-shirt" is using what we call the CodeSpecJS Detailed Grammar (Ex: And Wait for "Main search bar" with the "id" of "search_query_top" to appear). Here, we are instructing CodeSpecJS to look for an UI element in the DOM model with an "id" value of "search_query_top" and to add it to the system object repository with a unique identifier "Search for t-shirt". 
-* Once we specify a page object using the detailed grammar, we can refer to it directly using the element key (or the unique identifier) for all the future tests. 
-* Note that detailed grammar is only necessary if you don't specify the page objects using an object repository. [Click here](https://github.com/99xt/CodeSpecJS/wiki/Creating-an-Object-Repository) to know more about how to create object repositories. 
+        And Wait for "Second Result Element Cats" to contain text "Cats"
+ ```
+
 * This is a standard [Cucumber](https://cucumber.io/) feature specification file.
 * We are using CodeSpecJS pre-defined grammar to write the test above. A full set of Supported grammar with detail description can be found [here](https://github.com/99xt/CodeSpecJS/wiki/CodeSpecJS-Supported-Grammar)
 
-Thats it, you are now ready to run the test. **Note that we haven't written any code** We just used a set of well defined Gherkin grammar to specify what we want to do. Please refer to [Supported Grammar](https://github.com/99xt/CodeSpecJS/wiki/CodeSpecJS-Supported-Grammar) to a full set of grammar you can use in your tests. 
+Thats it, you are now ready to run the test. 
 
 ### Step 5: Running the test
 Inside the project root folder, issue the following command
